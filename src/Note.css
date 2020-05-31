@@ -1,0 +1,17 @@
+.card {
+    background-color: white;
+    margin: 2.5%;
+    padding: 10px;
+}
+
+.date, .text {
+    margin: 0;
+}
+
+.date {
+    color: gray;
+}
+
+.title {
+    margin-top: 0; 
+}

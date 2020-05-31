@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import NoteComponent from './NoteComponent'
 
 class Note extends Component {
     constructor() {
@@ -20,11 +21,7 @@ class Note extends Component {
 
     render() {
         return (
-            <div>
-                <h5>{this.state.date}</h5>
-                <h2>{this.state.title}</h2>
-                <p>{this.state.text}</p>
-            </div>
+            <NoteComponent data={this.state} />
         )
     }
 }
