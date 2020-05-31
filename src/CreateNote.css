@@ -1,0 +1,31 @@
+form {
+    width: 50%;
+    background-color: teal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createHeader {
+    margin: 0.5em;
+}
+
+.createTitle {
+    font-size: 1.25em;
+    margin: 1%;
+    width: 95%; 
+}
+
+.createText {
+    resize: none;
+    font-size: 1.25em;
+    width: 95%;
+    height: 100px;
+    margin-bottom: 2%;
+}
+
+.createButton {
+    margin-bottom: 1em;
+}
+

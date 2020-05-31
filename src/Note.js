@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import NoteComponent from './NoteComponent'
+import './Note.css'
 
 class Note extends Component {
     constructor() {
@@ -13,15 +13,22 @@ class Note extends Component {
 
     componentDidMount() {
         this.setState({
+            // at the moment of mounting component, assign the date a new Date which will represent the time of edit
             date: new Date().toLocaleString(),
+            // title of note
             title: this.props.title,
+            // contents of note
             text: this.props.text
         })
     }
 
     render() {
         return (
-            <NoteComponent data={this.state} />
+            <div className="card">
+                <h5 className="date">{this.state.date}</h5>
+                <h2 className="title">{this.state.title}</h2>
+                <p className="text">{this.state.text}</p>
+            </div>   
         )
     }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import Note from './NoteContainer'
+import Note from './Note'
+import CreateNote from './CreateNote'
 import './App.css'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     	<div className="App">
 			<Note title="Sample" text="sample" />
 			<Note title="Sample2" text="sample2" />
+			<CreateNote />
     	</div>
   	)
 }
