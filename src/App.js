@@ -8,32 +8,41 @@ class App extends React.Component {
 		super()
 		this.state = {
 			// array of objects with properties of title and text that represents notes
-			notes: []
+			notes: [],
+			count: 0
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 	// this method handles submits from the createNote form
-	handleSubmit() {
-		this.setState( (prevState) => {
-			return (
-				prevState.notes.append()
-			)
+	handleSubmit(event, childTitle, childText) {
+		event.preventDefault()
+		const tempNotes = this.state.notes
+		tempNotes.push({
+			id: this.state.count,
+			title: childTitle,
+			text: childText
 		})
+		this.setState(prevState => {
+			return {
+				notes: tempNotes,
+				count: prevState.count + 1
+			}
+		})
+		console.log(this.state.notes)
 	}
 
 	render() {
 		// maps the notes in state to another array with every element as a component
 		const noteComponents = this.state.notes.map((note) => {
-			return <Note title={note.title} text={note.text} />
+			return <Note key={note.id} title={note.title} text={note.text} />
 		})
-		noteComponents.push(<Note title="example note" text="sample text" />)
 
 		return (
 			<div className="App">
 				{/* array of note components */}
 				{noteComponents}
-				<CreateNote onChange={this.handleSubmit} />
+				<CreateNote handleSubmit={this.handleSubmit} />
 			</div>
 		)
 	}
