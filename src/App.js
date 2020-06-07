@@ -9,6 +9,7 @@ class App extends React.Component {
 		this.state = {
 			// array of objects with properties of title and text that represents notes
 			notes: [],
+			// counter for generating keys to be used for mapping and id'ing
 			count: 0
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,11 +19,16 @@ class App extends React.Component {
 	handleSubmit(event, childTitle, childText) {
 		event.preventDefault()
 		const tempNotes = this.state.notes
+		// add to array whenever new note is generated or added
 		tempNotes.push({
+			// id of note (key)
 			id: this.state.count,
+			// title from createForm state
 			title: childTitle,
+			// text from createForm state
 			text: childText
 		})
+		// set new array to state and update count
 		this.setState(prevState => {
 			return {
 				notes: tempNotes,
@@ -42,6 +48,7 @@ class App extends React.Component {
 			<div className="App">
 				{/* array of note components */}
 				{noteComponents}
+				{/* component for rendering a form and allowing user to generate new note */}
 				<CreateNote handleSubmit={this.handleSubmit} />
 			</div>
 		)
