@@ -12,8 +12,10 @@ class Note extends Component {
         }
     }
 
-    // whenever the component first mounts, state's date will be assigned a new Date just once, 
-    // which will represent the time the note was generated
+    /**  
+     * whenever the component first mounts, state's date will be assigned a new Date just once, 
+     * which will represent the time the note was generated
+     */
     componentDidMount() {
         this.setState({
             // at the moment of mounting component, assign the date a new Date which will represent the time of edit

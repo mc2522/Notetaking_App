@@ -13,8 +13,11 @@ class CreateNote extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    // event handler that updates input fields and state whenever user types in them
-    handleChange(event) {
+    /**
+     * event handler that updates input fields and state whenever user types in them   
+     * @param event     return value of onChange in form
+     */
+     handleChange(event) {
         const {name, value} = event.target
         this.setState({
             [name]: value
