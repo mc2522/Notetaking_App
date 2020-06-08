@@ -27,12 +27,15 @@ class Note extends Component {
     }
 
     /**
-     * event handler that changes the x button's color when the mouse enters the button (hovering over)
+     * event handler that changes the x button's color when the mouse cursor enters the button (hovering over)
      */
     handleMouseEnter() {
         this.setState({deleteImg: "./x-red.jpg"})
     }
 
+    /**
+     * event handler that changes the x button's color when the mouse cursor leaves the button
+     */
     handleMouseLeave() {
         this.setState({deleteImg: "./x-black.png"})
     }
