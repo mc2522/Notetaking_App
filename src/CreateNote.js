@@ -9,6 +9,8 @@ class CreateNote extends Component {
             title: "",
             // text of note
             text: "",
+            // count for comparing old and new state
+            count: 0
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -17,11 +19,27 @@ class CreateNote extends Component {
      * Event handler that updates input fields and state whenever user types in them   
      * @param event     return value of onChange in form
      */
-     handleChange(event) {
+    handleChange(event) {
         const {name, value} = event.target
         this.setState({
             [name]: value
         })
+    }
+
+    /**
+     * This lifecycle method will reset the state and the input fields once it detects that a note has been created
+     * by comparing new and old count
+     */
+    componentDidUpdate(prevProps, prevState) {
+        // if the old and new count is different, that means a new note has been generated and we need to reset the state to default
+        // and match the count for future comparisons
+        if (prevState.count !== this.props.count) {
+            this.setState({
+                title: "",
+                text: "",
+                count: this.props.count
+            })
+        }
     }
 
     render() {

@@ -41,7 +41,6 @@ class App extends React.Component {
 				count: prevState.count + 1
 			}
 		})
-		console.log(this.state.notes)
 	}
 
 	/**
@@ -71,7 +70,7 @@ class App extends React.Component {
 				{/* array of note components */}
 				{noteComponents}
 				{/* component for rendering a form and allowing user to generate new note */}
-				<CreateNote handleSubmit={this.handleSubmit} />
+				<CreateNote handleSubmit={this.handleSubmit} count={this.state.count} />
 			</div>
 		)
 	}
