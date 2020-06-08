@@ -13,9 +13,15 @@ class App extends React.Component {
 			count: 0
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleDelete = this.handleDelete.bind(this)
 	}
 
-	// this method handles submits from the createNote form
+	/**
+	 * This method handles submits from the createNote form
+	 * @param event			return value from onSubmit in form
+	 * @param childTitle	title from the createNote component's state
+	 * @param childText		text from the createNote component's state
+	 */ 
 	handleSubmit(event, childTitle, childText) {
 		event.preventDefault()
 		const tempNotes = this.state.notes
@@ -38,10 +44,26 @@ class App extends React.Component {
 		console.log(this.state.notes)
 	}
 
+	/**
+	 * This method handles deleting notes by onClick in Note 
+	 * @event		return value from onClick
+	 * @param id	id of note to delete from notes in the state
+	 */
+	handleDelete(event, id) {
+		event.preventDefault()
+		let tempNotes = this.state.notes
+		// loops through the state's notes array and finds the note with the provided id and deletes it
+		for (let index = 0; index < tempNotes.length; index++) {
+			if (tempNotes[index].id === id) 
+				tempNotes.splice(index, 1)
+		}
+		this.setState({notes: tempNotes})
+	}
+
 	render() {
 		// maps the notes in state to another array with every element as a component
 		const noteComponents = this.state.notes.map((note) => {
-			return <Note key={note.id} title={note.title} text={note.text} />
+			return <Note key={note.id.toString()} id={note.id} title={note.title} text={note.text} handleDelete={this.handleDelete} />
 		})
 
 		return (
