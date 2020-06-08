@@ -16,7 +16,7 @@ class Note extends Component {
     }
 
     /**  
-     * whenever the component first mounts, state's date will be assigned a new Date just once, 
+     * Whenever the component first mounts, state's date will be assigned a new Date just once, 
      * which will represent the time the note was generated
      */
     componentDidMount() {
@@ -27,14 +27,14 @@ class Note extends Component {
     }
 
     /**
-     * event handler that changes the x button's color when the mouse cursor enters the button (hovering over)
+     * Event handler that changes the x button's color when the mouse cursor enters the button (hovering over)
      */
     handleMouseEnter() {
         this.setState({deleteImg: "./x-red.jpg"})
     }
 
     /**
-     * event handler that changes the x button's color when the mouse cursor leaves the button
+     * Event handler that changes the x button's color when the mouse cursor leaves the button
      */
     handleMouseLeave() {
         this.setState({deleteImg: "./x-black.png"})

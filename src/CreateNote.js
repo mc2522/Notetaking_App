@@ -14,7 +14,7 @@ class CreateNote extends Component {
     }
 
     /**
-     * event handler that updates input fields and state whenever user types in them   
+     * Event handler that updates input fields and state whenever user types in them   
      * @param event     return value of onChange in form
      */
      handleChange(event) {
